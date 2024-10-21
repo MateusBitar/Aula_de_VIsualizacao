@@ -108,3 +108,8 @@ st.subheader('6.Quantidade de pessoas separadas por altura, peso, e gênero')
 
 #plotando gráfico no streamlit
 st.scatter_chart(df, x = 'Weight (kg)', y = 'Height (m)', size = "Age", color = 'Gender')
+
+st.subheader('Acesse a tabela dinamica:')
+st.link_button("Tabela Dinâmica", "Bota o link aq")
+
+
