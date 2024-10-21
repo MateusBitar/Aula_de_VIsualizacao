@@ -6,7 +6,7 @@ import altair as alt
 df = pd.read_csv('gym_members_exercise_tracking.csv')
 
 # Subtítulo
-st.subheader('Quantidade de pessoas que frequentam academia divididas por genero')
+st.subheader('1.Quantidade de pessoas que frequentam academia divididas por genero')
 
 # criar Dataframe com informações que serão utilizadas no gráfico para incluir a frequência
 sexo = pd.DataFrame({
@@ -19,7 +19,7 @@ st.bar_chart(sexo,x = 'Gênero',y = 'freq', color = '#bb781c')
 
 
 # Subtítulo
-st.subheader('Quantidade de pessoas que frequentam academia divididas niveis de experiência')
+st.subheader('2.Quantidade de pessoas que frequentam academia divididas niveis de experiência')
 
 # criar Dataframe com informações que serão utilizadas no gráfico para incluir a frequência
 exp = pd.DataFrame({
@@ -32,7 +32,7 @@ st.bar_chart(exp,x = 'Nível de Experência',y = 'freq', color = '#36648b')
 
 
 # Subtítulo
-st.subheader('Quantidade de pessoas que frequentam academia divididas por idade')
+st.subheader('3.Quantidade de pessoas que frequentam academia divididas por idade')
 
 # criar Dataframe com informações que serão utilizadas no gráfico para incluir a frequência
 idade = pd.DataFrame({
@@ -48,7 +48,7 @@ st.bar_chart(idade,x = 'Idade',y = 'freq', color = '#00a86b')
 
 
 # Subtítulo
-st.subheader('Quantidade de caloria queimada por tempo de treino')
+st.subheader('4.Quantidade de caloria queimada por tempo de treino')
 
 # Selecionar os tipos de treino para análise
 workout_types = df['Workout_Type'].unique()
@@ -64,7 +64,7 @@ st.scatter_chart(filtered_df,y = 'Calories_Burned',x = 'Session_Duration (hours)
 
 
 # subtítulo
-st.subheader('Média de Calorias Queimadas por Nível de Experiência')
+st.subheader('5.Média de Calorias Queimadas por Nível de Experiência')
 
 # Criar as opções para maior interatibilidade
 genero = st.radio("Selecione o Gênero" ,
@@ -104,7 +104,7 @@ bar_chart = alt.Chart(media_calorias).mark_bar().encode(
 st.altair_chart(bar_chart, use_container_width=True)
 
 
-st.subheader('Quantidade de pessoas separadas por altura, peso, e gênero')
+st.subheader('6.Quantidade de pessoas separadas por altura, peso, e gênero')
 
 #plotando gráfico no streamlit
 st.scatter_chart(df, x = 'Weight (kg)', y = 'Height (m)', size = "Age", color = 'Gender')
