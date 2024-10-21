@@ -48,7 +48,7 @@ st.bar_chart(idade,x = 'Idade',y = 'freq', color = '#00a86b')
 
 
 # Subtítulo
-st.title('Quantidade de caloria queimada por tempo de treino')
+st.subheader('Quantidade de caloria queimada por tempo de treino')
 
 # Selecionar os tipos de treino para análise
 workout_types = df['Workout_Type'].unique()
