@@ -1,7 +1,5 @@
 import pandas as pd
-
 import streamlit as st
-
 import altair as alt
 
 # Carregar Base de dados do Kaggle
@@ -21,7 +19,7 @@ st.bar_chart(sexo,x = 'genero',y = 'freq', color = '#bb781c')
 
 
 # Subtítulo
-st.title('Gráfico de Dispersão com st.scatter_chart')
+st.title('Quantidade de caloria queimada por tempo de treino')
 
 # Selecionar os tipos de treino para análise
 workout_types = df['Workout_Type'].unique()
@@ -34,7 +32,7 @@ st.scatter_chart(filtered_df,y = 'Calories_Burned',x = 'Session_Duration (hours)
 
 
 # subtítulo
-st.subheader('Tempo de treino por experiencia')
+st.subheader('Média de Calorias Queimadas por Nível de Experiência')
 
 
 genero = st.radio("Selecione o Gênero" ,
@@ -62,7 +60,7 @@ bar_chart = alt.Chart(media_calorias).mark_bar().encode(
     color=alt.Color('Gender:N', scale=color_scale),  # Diferenciar as barras por gênero
     tooltip=['Experience_Level:N', 'Gender:N', 'Calories_Burned:Q']  # Exibir informações ao passar o mouse
 ).properties(
-    title=f'Média de Calorias Queimadas por Nível de Experiência - Gênero: {genero}'
+    title=f' Gênero: {genero}'
 )
 
 # Exibir o gráfico no Streamlit
