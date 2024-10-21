@@ -6,15 +6,44 @@ import altair as alt
 df = pd.read_csv('gym_members_exercise_tracking.csv')
 
 # Subtítulo
-st.subheader('Pessoas que frequentam academia divididas por genero')
+st.subheader('Quantidade de pessoas que frequentam academia divididas por genero')
 
 # criar Dataframe com informações que serão utilizadas no gráfico para incluir a frequência
 sexo = pd.DataFrame({
-    'genero' : df['Gender'].unique(),
+    'Gênero' : df['Gender'].unique(),
     'freq' :df['Gender'].value_counts()
     })
 
-st.bar_chart(sexo,x = 'genero',y = 'freq', color = '#bb781c')
+#plotando gráfico no streamlit
+st.bar_chart(sexo,x = 'Gênero',y = 'freq', color = '#bb781c')
+
+
+# Subtítulo
+st.subheader('Quantidade de pessoas que frequentam academia divididas niveis de experiência')
+
+# criar Dataframe com informações que serão utilizadas no gráfico para incluir a frequência
+exp = pd.DataFrame({
+    'Nível de Experência' : df['Experience_Level'].unique(),
+    'freq' :df['Experience_Level'].value_counts()
+    })
+
+#plotando gráfico no streamlit
+st.bar_chart(exp,x = 'Nível de Experência',y = 'freq', color = '#36648b')
+
+
+# Subtítulo
+st.subheader('Quantidade de pessoas que frequentam academia divididas por idade')
+
+# criar Dataframe com informações que serão utilizadas no gráfico para incluir a frequência
+idade = pd.DataFrame({
+    'Idade' : df['Age'].unique(),
+    'freq' :df['Age'].value_counts()
+    })
+
+
+#plotando gráfico no streamlit
+st.bar_chart(idade,x = 'Idade',y = 'freq', color = '#00a86b')
+
 
 
 
@@ -28,32 +57,40 @@ selected_workout = st.multiselect('Selecione o(s) tipo(s) de treino:', workout_t
 # Filtrar dados com base no tipo de treino selecionado
 filtered_df = df[df['Workout_Type'].isin(selected_workout)]
 
-st.scatter_chart(filtered_df,y = 'Calories_Burned',x = 'Session_Duration (hours)', color = '#bb781c')
+#plotando gráfico no streamlit
+st.scatter_chart(filtered_df,y = 'Calories_Burned',x = 'Session_Duration (hours)',  color = '#bb781c')
+
+
 
 
 # subtítulo
 st.subheader('Média de Calorias Queimadas por Nível de Experiência')
 
-
+# Criar as opções para maior interatibilidade
 genero = st.radio("Selecione o Gênero" ,
-                  ["Male", "Female", "Ambos"]
+                  ["Male", "Female", "Ambos"],
+                  horizontal = True
     )
 
 
+# criar Dataframe com informações que serão utilizadas no gráfico
 
-teste = pd.DataFrame({
+calorias = pd.DataFrame({
     'Calories_Burned': df['Calories_Burned'],
     'Experience_Level': df['Experience_Level'],
     'Gender': df['Gender']
 })
+
 if genero != "Ambos":
-    teste = teste[teste['Gender'] == genero]
+    calorias = calorias[calorias['Gender'] == genero]
 
 # Calcular a média de calorias queimadas por nível de experiência e gênero
-media_calorias = teste.groupby(['Experience_Level', 'Gender'])['Calories_Burned'].mean().reset_index()
+media_calorias = calorias.groupby(['Experience_Level', 'Gender'])['Calories_Burned'].mean().reset_index()
 
+#definindo escala de cor escalável
 color_scale = alt.Scale(domain=['Male', 'Female'], range=['#7f1734', '#ff7f0e'])
 
+#definindo parâmetros do gráfico
 bar_chart = alt.Chart(media_calorias).mark_bar().encode(
     x='Experience_Level:N',
     y='Calories_Burned:Q',
@@ -67,6 +104,7 @@ bar_chart = alt.Chart(media_calorias).mark_bar().encode(
 st.altair_chart(bar_chart, use_container_width=True)
 
 
+st.subheader('Quantidade de pessoas separadas por altura, peso, e gênero')
 
-
-#st.bar_chart(teste, y = 'Calories_Burned', x = 'Experience_Level',color = "Gender", stack=False)
+#plotando gráfico no streamlit
+st.scatter_chart(df, x = 'Weight (kg)', y = 'Height (m)', size = "Age", color = 'Gender')
