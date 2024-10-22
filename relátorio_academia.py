@@ -5,11 +5,11 @@ import altair as alt
 st.title('Introdução')
 st.markdown("Selecionamos um conjunto de dados de membros de academia, no qual abrange características demográficas, atributos físicos e métricas de desempenho durante sessões de treino. A base de dados contém 973 amostras e inclui variáveis relacionadas à frequência cardíaca, calorias queimadas, duração do treino e outras métricas de condicionamento físico. A análise visa identificar padrões de comportamento físico, progressão dos atletas e tendências de saúde.")
 
-df.head
 
 # Carregar Base de dados do Kaggle
 df = pd.read_csv('gym_members_exercise_tracking.csv')
 
+df.head()
 # Subtítulo
 st.subheader('1.Quantidade de pessoas que frequentam academia divididas por genero')
 
