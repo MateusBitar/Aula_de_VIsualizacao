@@ -9,7 +9,8 @@ st.markdown("Selecionamos um conjunto de dados de membros de academia, no qual a
 # Carregar Base de dados do Kaggle
 df = pd.read_csv('gym_members_exercise_tracking.csv')
 
-df.head()
+df
+
 # Subtítulo
 st.subheader('1.Quantidade de pessoas que frequentam academia divididas por genero')
 
