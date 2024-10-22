@@ -121,7 +121,7 @@ st.markdown("O uso do painel trouxe uma vantagem interativa, permitindo que os u
 st.markdown("Ao comparar a experiência do painel com a planilha, fica evidente que o painel facilita a exploração visual e permite uma navegação fluida pelos dados.")
 
 st.subheader('Acesse a tabela dinamica:')
-st.link_button("Tabela Dinâmica", "Bota o link aq")
+st.link_button("Tabela Dinâmica", "https://docs.google.com/spreadsheets/d/1hZUH3A9y6sxK08FsfJAZMLgkdtz6uObJEWGmeDk3Czo/edit?usp=sharing")
 
 st.subheader('Acesse o relatório:')
 st.link_button("Relatório", "https://docs.google.com/document/d/1xVn0OYwI0I1eOyktmPLT4znazsMWTxqZQANO_oNe1J8/edit?tab=t.0")
