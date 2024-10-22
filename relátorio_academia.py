@@ -2,6 +2,12 @@ import pandas as pd
 import streamlit as st
 import altair as alt
 
+st.title('Introdução')
+st.markdown('Selecionamos um conjunto de dados de membros de academia, no qual abrange características demográficas, atributos físicos e métricas de desempenho durante sessões de treino. A base de dados contém 973 amostras e inclui variáveis relacionadas à frequência cardíaca, calorias queimadas, duração do treino e outras métricas de condicionamento físico. A análise visa identificar padrões de comportamento físico, progressão dos atletas e tendências de saúde.
+')
+
+
+
 # Carregar Base de dados do Kaggle
 df = pd.read_csv('gym_members_exercise_tracking.csv')
 
@@ -109,7 +115,16 @@ st.subheader('6.Quantidade de pessoas separadas por altura, peso, e gênero')
 #plotando gráfico no streamlit
 st.scatter_chart(df, x = 'Weight (kg)', y = 'Height (m)', size = "Age", color = 'Gender')
 
+
+st.title('Conclusão')
+st.markdown('Em virtude do exposto, podemos observar que, o painel interativo no Streamlit mostra uma maneira intuitiva e dinâmica de explorar os dados dos membros da academia. Através de diferentes visuais e filtros, foi possível identificar padrões de comportamento e tendências importantes, como a relação entre calorias queimadas e duração do treino, além de insights sobre como a experiência do atleta e o tipo de treino influenciam métricas como a frequência cardíaca e calorias queimadas.')
+st.markdown('O uso do painel trouxe uma vantagem interativa, permitindo que os usuários ajustem os filtros para segmentar dados por gênero, nível de experiência e tipo de treino, facilitando uma análise personalizada de acordo com as necessidades de cada usuário, além disso, os gráficos de dispersão e histogramas proporcionaram uma compreensão clara das variações nos dados, ajudando a visualizar como os diferentes grupos de atletas se comportam em termos de desempenho.')
+st.markdown('Ao comparar a experiência do painel com a planilha, fica evidente que o painel facilita a exploração visual e permite uma navegação fluida pelos dados. 
+')
+
 st.subheader('Acesse a tabela dinamica:')
 st.link_button("Tabela Dinâmica", "Bota o link aq")
 
+st.subheader('Acesse o relatório:')
+st.link_button("Relatório", "https://docs.google.com/document/d/1xVn0OYwI0I1eOyktmPLT4znazsMWTxqZQANO_oNe1J8/edit?tab=t.0")
 
